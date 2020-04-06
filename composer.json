@@ -1,5 +1,5 @@
 {
-    "name": "zxp/lib",
+    "name": "ZxpLib",
     "description": "The common tool library of PHP.",
     "type": "library",
     "license": "MIT",
