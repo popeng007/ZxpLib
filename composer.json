@@ -1,0 +1,21 @@
+{
+    "name": "zxp/lib",
+    "description": "The common tool library of PHP.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zxp",
+            "email": "zhang.xian.peng@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZxpLib\\": "src/"
+        }
+    }
+}
