@@ -73,6 +73,9 @@ class Arrays
      */
     public static function multisort(&$array, $columnSortOrders)
     {
+        if (!is_array($array)) {
+            return;
+        }
         $columnValues = [];
         foreach ($array as $key => $row) {
             foreach ($columnSortOrders as $column => $sortOrder) {
