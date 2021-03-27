@@ -1,4 +1,5 @@
 <?php
+
 namespace ZxpLib;
 
 /**
@@ -88,5 +89,22 @@ class Arrays
         }
         $code .= '$array);';
         eval($code);
+    }
+
+    /**
+     * 二维数据转映射表
+     *
+     * @date 2021-03-05
+     * @param array $array  二维数组
+     * @param string $key   索引键名
+     * @return array
+     */
+    public static function toMap($array, $key)
+    {
+        $map = [];
+        foreach ($array as $index => $row) {
+            $map[$row[$key]] = $row;
+        }
+        return $map;
     }
 }

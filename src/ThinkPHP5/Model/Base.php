@@ -46,6 +46,25 @@ class Base extends Model
     }
 
     /**
+     * 关联模型联合获取数据列表
+     *
+     * @date 2021-03-02
+     * @param mixed $with
+     * @param array $joins
+     * @param string $alias
+     * @param mixed $fields
+     * @param mixed $where
+     * @param int $size
+     * @param mixed $order
+     * @return array
+     */
+    public static function getListWithJoin($with, $joins, $alias, $fields, $where, $size, $order = 'id desc')
+    {
+        $data = self::with($with)->join($joins)->alias($alias)->field($fields)->where($where)->order($order)->paginate($size)->toArray();
+        return Result::paginateFormat($data);
+    }
+
+    /**
      * 获取全部数据
      *
      * @param array $fields
@@ -56,5 +75,20 @@ class Base extends Model
     public static function getAll($fields, $where, $order = 'id desc')
     {
         return self::field($fields)->where($where)->order($order)->select();
+    }
+
+    /**
+     * 关联模型获取全部数据
+     *
+     * @date 2021-02-26
+     * @param mixed $with
+     * @param mixed $fields
+     * @param mixed $where
+     * @param mixed $order
+     * @return array
+     */
+    public static function getAllWith($with, $fields, $where, $order = 'id desc')
+    {
+        return self::with($with)->field($fields)->where($where)->order($order)->select();
     }
 }
